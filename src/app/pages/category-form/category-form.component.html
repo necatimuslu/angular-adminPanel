@@ -1,0 +1,39 @@
+<p-toast></p-toast>
+<p-card [header]="editMode ? 'Güncelle': 'Ekle'" [subheader]="editMode ? 'Kategori güncelle': 'Kategori ekle'">
+    <div class="row">
+        <div class="col-md-12">
+            <p-toolbar>
+                <div class="p-toolbar-group-left"> </div>
+                <div class="p-toolbar-group-right"> 
+                    <p-button (click)="onSubmit()" [label]="editMode ? 'Güncelle' : 'Ekle'" icon="pi pi-plus" styleClass="p-button-info mr-2"></p-button>
+                    <p-button (click)="onCancel()" label="İptal" icon="pi pi-arrow-left" styleClass="p-button-danger"></p-button>
+                </div>
+            </p-toolbar>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <form [formGroup]="form">
+                <div class="p-fluid p-formgrid row">
+                    <div class="p-field col-md-4">
+                        <label for="name">Name</label>
+                        <input id="name" class="form-control" type="text" pInputText placeholder="Category name" formControlName="name"> 
+                        <small class="p-error" *ngIf="this.form.controls.name.invalid && isSubmitting"> Name is required</small>
+                    </div>
+                    <div class="p-field col-md-4">
+                        <label for="icon">İcon</label>
+                        <input id="icon" class="form-control" type="text" pInputText placeholder="Category icon" formControlName="icon"> 
+                        <small class="p-error" *ngIf="this.form.controls.icon.invalid && isSubmitting "> İcon is required</small>
+                    </div>
+                    <div class="p-field col-md-4">
+                        <label for="color">Color</label> <br>
+                        <p-colorPicker formControlName="color" id="color"></p-colorPicker> 
+                    </div>
+                </div>
+            </form>
+        </div>
+       
+        
+    </div>
+
+</p-card>

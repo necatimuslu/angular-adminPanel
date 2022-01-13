@@ -1,0 +1,58 @@
+.admin-sidebar{
+    position:fixed;
+    width: 175px;
+    background-color: #0a3d62;
+    height: 100%;
+}
+.logo{
+    padding: 2opx;
+    width: 100%;
+    border-bottom: 1px soli #19487b;
+
+    img{
+        max-width: 100%;
+    }
+}
+.links{
+    ul{
+        margin: 0;
+        padding: 0;
+
+        li{
+            display: block;
+            list-style: none;
+            width: 100%;
+            
+            a{
+                color:#fff;
+                padding: 10px 15px;
+                display: block;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 2px;
+                text-decoration: none;
+
+                i{
+                    margin-right: 8px;
+                    margin-top: 3px;
+                    float: left;
+                }
+                &:hover{
+                    background-color: #19487b;
+                }
+                &:active{
+                    color:#45af7f;
+                }
+            }
+            &-logout{
+                a{
+                    color:#fff;
+                    text-decoration: none;
+                }
+                a:hover{
+                    background-color: #60a3bc;
+                }
+            }
+        }
+    }
+}

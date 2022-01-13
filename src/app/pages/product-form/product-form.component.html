@@ -1,0 +1,84 @@
+<p-toast></p-toast>
+<p-card [header]="editMode ? 'Güncelle': 'Ekle'" [subheader]="editMode ? 'Kategori güncelle': 'Kategori ekle'">
+    <div class="row">
+        <div class="col-md-12">
+            <p-toolbar>
+                <div class="p-toolbar-group-left"> </div>
+                <div class="p-toolbar-group-right"> 
+                    <p-button (click)="onSubmit()" [label]="editMode ? 'Güncelle' : 'Ekle'" icon="pi pi-plus" styleClass="p-button-info mr-2"></p-button>
+                    <p-button (click)="onCancel()" label="İptal" icon="pi pi-arrow-left" styleClass="p-button-danger"></p-button>
+                </div>
+            </p-toolbar>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <form [formGroup]="form">
+                <div class="p-fluid p-formgrid row">
+                    <div class="p-field col-md-4">
+                        <label for="name">Name</label>
+                        <input id="name" class="form-control" type="text" pInputText placeholder="Product name" formControlName="name"> 
+                        <small class="p-error" *ngIf="this.form.controls.name.invalid && isSubmitting"> Name is required</small>
+                    </div>
+                    <div class="p-field col-md-4">
+                        <label for="price">Price</label>
+                        <input id="price" class="form-control" type="text" pInputText placeholder="Product price" formControlName="price"> 
+                        <small class="p-error" *ngIf="this.form.controls.price.invalid && isSubmitting "> Price is required</small>
+                    </div>
+                    <div class="p-field col-md-4">
+                        <label for="brand">Brand</label>
+                        <input id="brand" class="form-control" type="text" pInputText placeholder="Category icon" formControlName="brand"> 
+                        
+                    </div>
+                </div>
+                    <div class="p-fluid p-formgrid row mt-3">
+                       
+                        <div class="p-field col-md-4">
+                            <label for="rating">Rating</label> <br>
+                            <p-rating formControlName="rating" id="rating"></p-rating>
+                        </div>
+                        <div class="p-field col-md-4">
+                            <label for="isFeatured">isFeatured</label> <br>
+                            <p-inputSwitch formControlName="isFeatured" id="isFeatured"></p-inputSwitch>
+                        </div>
+                        <div class="p-field col-md-4">
+                            <label for="category">Category</label>
+                            <p-dropdown [options]="categories" formControlName="category" optionLabel="name" optionValue="_id" [filter]=true
+                            filterBy="name"
+                            ></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="p-fluid p-formgrid row mt-3">
+                        <div class="col-md-12">
+                            <label for="description">Description</label> <br>
+                            <textarea [rows]="2" [cols]="30" formControlName="description" pInputTextarea ></textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="p-fluid p-formgrid row mt-3">
+                        <div class="col-md-12">
+                            <label for="richDescription">richDescription</label> <br>
+                            <p-editor formControlName="richDescription" [style]="{'height':'320px'}"></p-editor>
+                        </div>
+                        
+                    </div>
+                    <div class="p-fluid p-formgrid row mt-3">
+                        <div class="col-md-10 offset-1">
+                            <label for="image">İmage</label> <br>
+                            <input type="file"  id="image" class="form-control" accept="image/*" (change)="onImageUpload($event)">
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 offset-2 mt-4">
+                            <img [src]="imageDisplay" style="width: 50%;">
+                        </div>
+                    </div>
+                
+            </form>
+        </div>
+       
+        
+    </div>
+
+</p-card>
